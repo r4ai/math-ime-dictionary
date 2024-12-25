@@ -1,6 +1,9 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "build": {
+      "command": "deno run --allow-read --allow-write scripts/build.ts",
+      "description": "Build the IME dictionaries from the CSV files. The generated files are saved in the 'dist' directory."
+    }
   },
   "imports": {
     "@std/csv": "jsr:@std/csv@^1.0.4",
