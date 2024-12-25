@@ -1,0 +1,41 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@std/csv@^1.0.4": "1.0.4",
+    "jsr:@std/fs@^1.0.8": "1.0.8",
+    "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@std/streams@^1.0.8": "1.0.8",
+    "jsr:@valibot/valibot@~0.42.1": "0.42.1"
+  },
+  "jsr": {
+    "@std/csv@1.0.4": {
+      "integrity": "aa351de654b10b8a407275b61f588863b9538027fd47aed90dd9e7f54ab5bdc0",
+      "dependencies": [
+        "jsr:@std/streams"
+      ]
+    },
+    "@std/fs@1.0.8": {
+      "integrity": "161c721b6f9400b8100a851b6f4061431c538b204bb76c501d02c508995cffe0",
+      "dependencies": [
+        "jsr:@std/path"
+      ]
+    },
+    "@std/path@1.0.8": {
+      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
+    "@std/streams@1.0.8": {
+      "integrity": "b41332d93d2cf6a82fe4ac2153b930adf1a859392931e2a19d9fabfb6f154fb3"
+    },
+    "@valibot/valibot@0.42.1": {
+      "integrity": "ba0f6f7964aaeec0e4b1f793d575061f325ae6254cbb9d7ff01fb65068a0a23b"
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/csv@^1.0.4",
+      "jsr:@std/fs@^1.0.8",
+      "jsr:@std/path@^1.0.8",
+      "jsr:@valibot/valibot@~0.42.1"
+    ]
+  }
+}

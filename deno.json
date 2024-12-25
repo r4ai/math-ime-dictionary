@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "@std/csv": "jsr:@std/csv@^1.0.4",
+    "@std/fs": "jsr:@std/fs@^1.0.8",
+    "@std/path": "jsr:@std/path@^1.0.8",
+    "@valibot/valibot": "jsr:@valibot/valibot@^0.42.1"
+  }
+}
