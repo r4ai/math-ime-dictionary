@@ -2,6 +2,7 @@ import * as path from "@std/path"
 import * as fs from "@std/fs"
 import * as CSV from "@std/csv"
 import * as v from "@valibot/valibot"
+import { encode_utf16le } from "./utils.ts"
 
 const ROOT_DIR = path.resolve(path.join(import.meta.dirname!, ".."))
 const DICTIONARY_DIR = path.join(ROOT_DIR, "dictionary")
@@ -48,8 +49,11 @@ export const build_microsoft_ime = async (dictionary: Dictionary) => {
   const lines = dictionary.map(([word, reading, category, _]) => {
     return `${word}\t${reading}\t${category}`
   })
-  const data = lines.join("\n")
-  await Deno.writeTextFile(path.join(DIST_DIR, "microsoft_ime.txt"), data)
+  const content = lines.join("\r\n")
+  await Deno.writeFile(
+    path.join(DIST_DIR, "microsoft_ime.txt"),
+    encode_utf16le(content),
+  )
 }
 
 export const build = async () => {
