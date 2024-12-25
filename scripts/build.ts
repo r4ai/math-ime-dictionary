@@ -9,10 +9,10 @@ const DIST_DIR = path.join(ROOT_DIR, "dist")
 
 const dictionary_schema = v.array(
   v.tuple([
-    v.pipe(v.string(), v.nonEmpty()),
-    v.pipe(v.string(), v.nonEmpty()),
-    v.string(),
-    v.string(),
+    v.pipe(v.string(), v.nonEmpty()), // Word
+    v.pipe(v.string(), v.nonEmpty()), // Reading
+    v.pipe(v.string(), v.nonEmpty()), // Category
+    v.string(), // Comment
   ]),
 )
 
@@ -23,7 +23,7 @@ export const read_dictionary = async () => {
   for await (const entry of fs.walk(DICTIONARY_DIR)) {
     if (!(entry.isFile && entry.name.endsWith(".csv"))) continue
     const data_raw = await Deno.readTextFile(entry.path)
-    const data_csv = CSV.parse(data_raw)
+    const data_csv = CSV.parse(data_raw).slice(1)
     const data = await v.parseAsync(dictionary_schema, data_csv)
     for (const row of data) {
       const key = `${row[0]}__${row[1]}`
